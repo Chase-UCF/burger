@@ -4,13 +4,13 @@ var router = express.Router();
 
 // xhr is refrencinf jQuery. as in if the call is not coming from jQuery
 router.get("/", function(req, res) {
-    burger.all(function(data) {
+    burger.selectAll(function(data) {
         if (!req.xhr) {
-            res.render("burger/index", { burger: data });
-        } else {
-            res.render("partials/burger/all", { burger: data, layout: false });
-        };
-    });
+            res.render("burger/index", { burgers: data });
+        // } else {
+        //     res.render("partials/burger/all", { burgers: data, layout: false });
+        // };
+    };
 });
 
 router.post("/", function(req, res) {
